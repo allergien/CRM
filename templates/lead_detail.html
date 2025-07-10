@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Lead Detay</title>
+</head>
+<body>
+    <h2>Lead Detay: {{ lead.name }}</h2>
+    <p><strong>Telefon:</strong> {{ lead.phone }}</p>
+    <p><strong>Kaynak:</strong> {{ lead.source }}</p>
+    <p><strong>Takip Tarihi:</strong> {{ lead.followup }}</p>
+    <p><strong>İlk Not:</strong> {{ lead.note }}</p>
+
+    <h3>Görüşme Notları</h3>
+    <ul>
+        {% for n in notes %}
+        <li>{{ n.timestamp }} - {{ n.note }}</li>
+        {% endfor %}
+    </ul>
+
+    <form method="POST">
+        <input type="text" name="new_note" placeholder="Yeni Not" required>
+        <button type="submit">Ekle</button>
+    </form>
+
+    <p><a href="/">← Geri Dön</a></p>
+</body>
+</html>
