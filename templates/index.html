@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>CRM</title>
+</head>
+<body>
+    <h1>Lead Listesi</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>İsim</th>
+            <th>Telefon</th>
+            <th>Kaynak</th>
+            <th>Takip Tarihi</th>
+            <th>Not</th>
+        </tr>
+        {% for lead in leads %}
+        <tr>
+            <td>{{ lead.id }}</td>
+            <td>{{ lead.isim }}</td>
+            <td>{{ lead.telefon }}</td>
+            <td>{{ lead.kaynak }}</td>
+            <td>{{ lead.tarih }}</td>
+            <td>{{ lead.notlar }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <form method="POST">
+        <input type="text" name="isim" placeholder="İsim">
+        <input type="text" name="telefon" placeholder="Telefon">
+        <select name="kaynak">
+            <option value="Facebook">Facebook</option>
+            <option value="Instagram">Instagram</option>
+            <option value="Web">Web</option>
+            <option value="Whatsapp">Whatsapp</option>
+            <option value="Google Ads">Google Ads</option>
+            <option value="Diğer">Diğer</option>
+        </select>
+        <input type="date" name="tarih" placeholder="Takip Tarihi">
+        <input type="text" name="not" placeholder="Not">
+        <button type="submit">Ekle</button>
+    </form>
+</body>
+</html>
